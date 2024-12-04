@@ -1,5 +1,6 @@
 import { colors } from "./src/components/foundations/colors.js";
 import { typography } from "./src/components/foundations/typography.js";
+import { spacing } from "./src/components/foundations/spacings.js";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -28,6 +29,7 @@ export default {
 			semibold: "600",
 			bold: "700",
 		},
+		spacing: spacing,
 	},
 	plugins: [],
 };
