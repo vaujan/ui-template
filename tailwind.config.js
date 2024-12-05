@@ -1,6 +1,7 @@
 import { colors } from "./src/components/foundations/colors.js";
 import { typography } from "./src/components/foundations/typography.js";
 import { spacing } from "./src/components/foundations/spacings.js";
+import forms from "@tailwindcss/forms";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -10,18 +11,22 @@ export default {
 			base: colors.base,
 			gray: colors.gray,
 			brand: colors.brand,
+			transparent: "transparent",
 		},
 		fontSize: {
-			"5xl": [typography.display["2xl"].regular, { lineHeight: "1.2" }],
-			"4xl": [typography.display.xl.regular, { lineHeight: "1.2" }],
-			"3xl": [typography.display.lg.regular, { lineHeight: "1.2" }],
-			"2xl": [typography.display.md.regular, { lineHeight: "1.2" }],
-			xl: [typography.display.sm.regular, { lineHeight: "1.2" }],
-			lg: [typography.text.xl.regular, { lineHeight: "1.5" }],
-			md: [typography.text.lg.regular, { lineHeight: "1.5" }],
-			base: [typography.text.md.regular, { lineHeight: "1.5" }],
-			sm: [typography.text.sm.regular, { lineHeight: "1.5" }],
-			xs: [typography.text.xs.regular, { lineHeight: "1.5" }],
+			// Display scale
+			"display-2xl": [typography.display["2xl"].regular, { lineHeight: "1.2" }],
+			"display-xl": [typography.display.xl.regular, { lineHeight: "1.2" }],
+			"display-lg": [typography.display.lg.regular, { lineHeight: "1.2" }],
+			"display-md": [typography.display.md.regular, { lineHeight: "1.2" }],
+			"display-sm": [typography.display.sm.regular, { lineHeight: "1.2" }],
+			"display-xs": [typography.display.xs.regular, { lineHeight: "1.2" }],
+			// Text scale
+			"text-xl": [typography.text.xl.regular, { lineHeight: "1.5" }],
+			"text-lg": [typography.text.lg.regular, { lineHeight: "1.5" }],
+			"text-md": [typography.text.md.regular, { lineHeight: "1.5" }],
+			"text-sm": [typography.text.sm.regular, { lineHeight: "1.5" }],
+			"text-xs": [typography.text.xs.regular, { lineHeight: "1.5" }],
 		},
 		fontWeight: {
 			regular: "400",
@@ -30,6 +35,7 @@ export default {
 			bold: "700",
 		},
 		spacing: spacing,
+		extend: {},
 	},
-	plugins: [],
+	plugins: [forms],
 };
