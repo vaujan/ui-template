@@ -1,9 +1,12 @@
+import PropTypes from "prop-types";
+
 const DesignSystemHeader = ({ children, supportingText, componentPath }) => {
 	return (
 		<div className="flex p-4xl bg-base-white">
 			<div className="flex flex-col w-full gap-7xl p-6xl bg-gray-50 rounded-[20px]">
 				<div className="flex items-center space-x-md">
 					<p className="text-text-md font-medium">{componentPath}</p>
+					<p className="text-text-md font-medium">/</p>
 					<p className="text-text-md font-semibold">{children}</p>
 				</div>
 
@@ -23,3 +26,9 @@ const DesignSystemHeader = ({ children, supportingText, componentPath }) => {
 };
 
 export default DesignSystemHeader;
+
+DesignSystemHeader.propTypes = {
+	children: PropTypes.string.isRequired,
+	supportingText: PropTypes.string,
+	componentPath: PropTypes.string,
+};

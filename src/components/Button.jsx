@@ -1,16 +1,16 @@
 import PropTypes from "prop-types";
 
 const Button = ({
-	children,
+	children = "Button",
 	size = "md",
 	hierarchy = "primary",
 	state = "default",
 }) => {
 	const baseClassNames =
-		"inline-flex items-center justify-center rounded-md border font-semibold transition duration-150 ease-in-out";
+		"inline-flex items-center justify-center border font-semibold transition duration-150 ease-in-out ";
 
 	const sizeClassNames = {
-		sm: "text-text-sm px-[12px] py-[8px] rounded-[8px] gap-xs",
+		sm: "text-text-sm px-[12px] py-[8px] rounded-[8px]",
 		md: "text-text-sm px-[14px] py-[10px] rounded-[8px]",
 		lg: "text-text-md px-[16px] py-[12px] rounded-[8px]",
 		xl: "text-text-lg px-[18px] py-[14px] rounded-[8px]",
@@ -19,10 +19,19 @@ const Button = ({
 
 	const hierarchyClassNames = {
 		primary:
-			"bg-brand-500 text-base-white border-transparent hover:bg-brand-600",
-		secondary: "bg-white text-brand-900 border-brand-300 hover:bg-brand-50",
-		tertiary:
-			"bg-transparent text-brand-900 border-transparent hover:bg-brand-50",
+			"bg-brand-600 text-base-white border border-white/12 shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.25),inset_0px_-1px_0px_0px_rgba(0,0,0,0.12),0px_1px_2px_0px_rgba(16,24,40,0.05)] hover:bg-brand-700",
+		secondaryGray:
+			"bg-white text-gray-900 border-gray-300 hover:bg-gray-50 shadow-xs",
+		secondaryColor:
+			"bg-brand-50 text-brand-900 border-brand-300 hover:bg-brand-100 shadow-xs",
+		tertiaryGray:
+			"bg-transparent text-gray-600 border-transparent hover:bg-gray-50 hover:text-gray-700 shadow-xs",
+		tertiaryColor:
+			"bg-transparent text-brand-600 border-transparent hover:bg-brand-50 hover:text-brand-700 shadow-xs",
+		linkGray:
+			"bg-transparent text-gray-600 border-transparent hover:text-gray-700 hover:underline shadow-xs p-0",
+		linkColor:
+			"bg-transparent text-brand-700 border-transparent hover:text-brand-800 hover:underline shadow-xs p-0",
 	};
 
 	const stateClassNames = {
@@ -32,13 +41,14 @@ const Button = ({
 
 	return (
 		<button
-			className={`focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 
+			className={`focus:outline-none focus:ring-2 focus:ring-offset-2  
 				${baseClassNames} 
-				${sizeClassNames[size]} 
 				${hierarchyClassNames[hierarchy]} 
-				${stateClassNames[state]}`}
+				${sizeClassNames[size]} 
+				${stateClassNames[state]}
+				`}
 		>
-			{children}
+			<span className="drop-shadow-xs">{children}</span>
 		</button>
 	);
 };
@@ -46,8 +56,16 @@ const Button = ({
 export default Button;
 
 Button.propTypes = {
-	children: PropTypes.node.isRequired,
-	size: PropTypes.oneOf(["xs", "sm", "md", "lg"]),
-	hierarchy: PropTypes.oneOf(["primary", "secondary", "tertiary"]),
+	children: PropTypes.string.isRequired,
+	size: PropTypes.oneOf(["sm", "md", "lg", "xl", "2xl"]),
+	hierarchy: PropTypes.oneOf([
+		"primary",
+		"secondaryGray",
+		"secondaryColor",
+		"tertiaryGray",
+		"tertiaryColor",
+		"linkGray",
+		"linkColor",
+	]),
 	state: PropTypes.oneOf(["default", "disabled"]),
 };

@@ -2,6 +2,7 @@ import { colors } from "./src/components/foundations/colors.js";
 import { typography } from "./src/components/foundations/typography.js";
 import { spacing } from "./src/components/foundations/spacings.js";
 import { radius } from "./src/components/foundations/radius.js";
+import { effects } from "./src/components/foundations/effects.js";
 import forms from "@tailwindcss/forms";
 
 /** @type {import('tailwindcss').Config} */
@@ -37,6 +38,15 @@ export default {
 		},
 		spacing: spacing,
 		borderRadius: radius,
+		dropShadow: {
+			...effects.shadows,
+			"focus-ring": effects.focusRings.base,
+			"focus-ring-light": effects.focusRings.light,
+			"focus-ring-dark": effects.focusRings.dark,
+			"focus-ring-error": effects.focusRings.error,
+			"focus-ring-error-xs": effects.focusRings.errorXs,
+		},
+		backdropBlur: effects.backdropBlurs,
 		extend: {},
 	},
 	plugins: [forms],
