@@ -1,11 +1,10 @@
-const DesignSystemHeader = ({ children, supportingText }) => {
+const DesignSystemHeader = ({ children, supportingText, componentPath }) => {
 	return (
 		<div className="flex p-4xl bg-base-white">
 			<div className="flex flex-col w-full gap-7xl p-6xl bg-gray-50 rounded-[20px]">
 				<div className="flex items-center space-x-md">
-					<p className="text-text-md font-medium">Shared Components</p>
-					<p>➡️</p>
-					<p className="text-text-md font-semibold">Buttons</p>
+					<p className="text-text-md font-medium">{componentPath}</p>
+					<p className="text-text-md font-semibold">{children}</p>
 				</div>
 
 				<div className="flex flex-col gap-md">
