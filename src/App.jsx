@@ -1,20 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import DesignSystemHeader from "./components/DesignSystemHeader";
+import Sidebar from "./pages/Sidebar";
 
 function App() {
 	return (
 		<Router>
-			<div className="min-h-screen w-screen bg-white">
-				<DesignSystemHeader
-					supportingText={"Buttons communicate actions that users can take."}
-				>
-					Buttons
-				</DesignSystemHeader>
-				<Routes>
-					<Route path="/" element={<Home />} />
-				</Routes>
-			</div>
+			<main className="flex min-w-screen h-screen bg-gray-950 bg-white">
+				<Sidebar />
+				<div className="p-md w-full h-full">
+					<Routes>
+						<Route path="/" element={<Home />} />
+					</Routes>
+				</div>
+			</main>
 		</Router>
 	);
 }

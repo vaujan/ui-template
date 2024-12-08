@@ -1,18 +1,21 @@
+import PropTypes from "prop-types";
+
 const Input = ({
 	size = "md",
-	label,
+	label = "Email",
+	placeholder = "user@email.com",
 	supportingText,
 	required = false,
 	state = "default",
 }) => {
 	const sizeClassNames = {
-		sm: "py-1 px-2",
-		md: "py-2 px-3",
+		sm: "px-lg py-md",
+		md: "px-[0.875rem] py-[0.625rem]",
 	};
 
 	const stateClassNames = {
-		default: "",
-		disabled: "bg-gray-100 border-gray-200 text-gray-400 cursor-not-allowed",
+		default: "text-gray-500 focus: text-gray-900",
+		disabled: "",
 	};
 
 	return (
@@ -23,14 +26,16 @@ const Input = ({
 					htmlFor="input"
 				>
 					{label}
-					{required && <span className="text-red-500">*</span>}
+					{required && <span className="text-brand-500"> *</span>}
 				</label>
 			)}
 			<input
 				type="text"
 				id="input"
-				className={`border ${sizeClassNames[size]} ${stateClassNames[state]} rounded-md  w-full`}
+				className={`border drop-shadow-xs ${sizeClassNames[size]} ${stateClassNames[state]}  rounded-md  w-full`}
 				required={required}
+				placeholder={placeholder}
+				disabled={state === "disabled"}
 			/>
 			{supportingText && (
 				<p className="text-text-xs text-gray-600">{supportingText}</p>
@@ -39,3 +44,12 @@ const Input = ({
 	);
 };
 export default Input;
+
+Input.propTypes = {
+	size: PropTypes.oneOf(["sm", "md"]),
+	label: PropTypes.string,
+	placeholder: PropTypes.string,
+	supportingText: PropTypes.string,
+	required: PropTypes.bool,
+	state: PropTypes.oneOf(["default", "disabled"]),
+};

@@ -49,5 +49,5 @@ export default {
 		backdropBlur: effects.backdropBlurs,
 		extend: {},
 	},
-	plugins: [forms],
+	plugins: [forms({ strategy: "class" })],
 };

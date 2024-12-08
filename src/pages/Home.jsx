@@ -1,10 +1,8 @@
-import Button from "../components/Button";
-
 const Home = () => {
 	return (
-		<main className="flex  items-center  h-fit px-4xl ">
-			<Button>Button</Button>
-		</main>
+		<div className="flex w-full justify-center rounded-lg bg-gray-200 items-center  min-h-full py-lg text-gray-800  ">
+			<h1 className="text-9xl font-bold text-white">Welcome to Storybook</h1>
+		</div>
 	);
 };
 

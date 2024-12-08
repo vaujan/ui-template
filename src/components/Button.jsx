@@ -10,11 +10,11 @@ const Button = ({
 		"inline-flex items-center justify-center border font-semibold transition duration-150 ease-in-out ";
 
 	const sizeClassNames = {
-		sm: "text-text-sm px-[12px] py-[8px] rounded-[8px]",
-		md: "text-text-sm px-[14px] py-[10px] rounded-[8px]",
-		lg: "text-text-md px-[16px] py-[12px] rounded-[8px]",
-		xl: "text-text-lg px-[18px] py-[14px] rounded-[8px]",
-		"2xl": "text-text-xl px-[22px] py-[16px] rounded-md",
+		sm: "text-text-sm px-[0.75rem] py-[0.5rem] rounded-[0.5rem]",
+		md: "text-text-sm px-[0.875rem] py-[0.625rem] rounded-[0.5rem]",
+		lg: "text-text-md px-[1rem] py-[0.75rem] rounded-[0.5rem]",
+		xl: "text-text-lg px-[1.125rem] py-[0.875rem] rounded-[0.5rem]",
+		"2xl": "text-text-xl px-[1.375rem] py-[1rem] rounded-md",
 	};
 
 	const hierarchyClassNames = {

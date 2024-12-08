@@ -11,7 +11,7 @@ export default {
 
 export const Default = {
 	args: {
-		label: "Input Label",
-		supportingText: "This is supporting text",
+		label: "Label",
+		supportingText: "This is a hint text to help user.",
 	},
 };

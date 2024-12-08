@@ -21,7 +21,22 @@ Secondary.args = {
 	hierarchy: "secondary",
 };
 
-export const Tertiary = Template.bind({});
-Tertiary.args = {
-	hierarchy: "tertiary",
+export const TertiaryGray = Template.bind({});
+TertiaryGray.args = {
+	hierarchy: "tertiaryGray",
+};
+
+export const TertiaryColor = Template.bind({});
+TertiaryColor.args = {
+	hierarchy: "tertiaryColor",
+};
+
+export const LinkGray = Template.bind({});
+LinkGray.args = {
+	hierarchy: "linkGray",
+};
+
+export const LinkColor = Template.bind({});
+LinkColor.args = {
+	hierarchy: "linkColor",
 };
