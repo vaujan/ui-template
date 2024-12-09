@@ -1,26 +1,43 @@
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
+import * as UntitledIcons from "@untitled-ui/icons-react";
 
-const NavItem = ({ children, to }) => {
-  return (
-    <NavLink
-      to={to}
-      className={({ isActive }) =>
-        `flex items-center gap-sm px-lg py-md rounded-md transition-all ${
-          isActive
-            ? "bg-gray-100 text-gray-900"
-            : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"
-        }`
-      }
-    >
-      <span className="text-sm font-medium">{children}</span>
-    </NavLink>
-  );
+const NavItem = ({ children, to, iconName }) => {
+	// Dynamically get the icon component
+
+	const Icon = iconName ? UntitledIcons[iconName] : null;
+
+	return (
+		<NavLink
+			to={to}
+			className={({ isActive }) =>
+				`flex items-center text-text-md gap-lg border border-transparent hover:bg-gray-800 hover:text-base-white hover:drop-shadow-md py-sm px-md rounded-md ${
+					isActive
+						? "border-t border-t-gray-800 bg-gray-900 text-base-white drop-shadow-md"
+						: "text-gray-500"
+				}`
+			}
+		>
+			{({ isActive }) => (
+				<>
+					{Icon && (
+						<Icon
+							className={`w-3xl h-3xl ${
+								isActive ? "text-brand-500" : "text-gray-500"
+							}`}
+						/>
+					)}
+					<span className="text-sm font-medium">{children}</span>
+				</>
+			)}
+		</NavLink>
+	);
 };
 
 NavItem.propTypes = {
-  children: PropTypes.node.isRequired,
-  to: PropTypes.string.isRequired,
+	children: PropTypes.node.isRequired,
+	to: PropTypes.string.isRequired,
+	iconName: PropTypes.string,
 };
 
 export default NavItem;
